@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service User {
+    rpc FindByToken(FindByTokenRequest) returns (UserResponse) {}
+
+    rpc FindByID(FindByIDRequest) returns (UserResponse) {}
+}
+
+message FindByTokenRequest {
+    string token = 1;
+}
+
+message FindByIDRequest {
+    int64 id = 1;
+}
+
+message UserResponse {
+    int64 id = 1;
+    string token = 2;
+    string account = 3;
+    string password = 4;
+    string email = 5;
+    string mobile = 6;
+
+}
